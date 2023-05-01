@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="5e61f05b-e7c7-4fee-9dba-02d2e96a39c8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Hotel Management System.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Hotel/Management/System/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Hotel/Management/System/Signup.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Hotel/Management/System/Splash.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/add-group.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/book.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/bookedDetails.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/bookpackage.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dashboard.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/delete.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dest1.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dest1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dest10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dest2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dest3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dest4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dest5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dest6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dest7.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dest8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/dest9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/forgotpassword.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/home.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/hotel1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/hotel10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/hotel2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/hotel3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/hotel4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/hotel5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/hotel6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/hotel7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/hotel8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/hotel9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/login.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/login1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/newcustomer.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/package1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/package2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/package3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/paytm.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/signup.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/splash.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/update.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/icons/viewall.jpg" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2P6hKHAlfCWe3DKg9ruZduyhS4J" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="autoscrollToSource" value="true" />
+    <option name="flattenPackages" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+    <option name="showMembers" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "C:/Users/monuk/Downloads/Telegram Desktop/mysql-connector-java-8.0.26.jar",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  }
+}]]></component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5e61f05b-e7c7-4fee-9dba-02d2e96a39c8" name="Changes" comment="" />
+      <created>1682783373084</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1682783373084</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
