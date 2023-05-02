@@ -2,9 +2,12 @@ package Hotel.Management.System;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 
-public class Login extends JFrame{
+public class Login extends JFrame implements ActionListener {
+
+    private JButton login,signup,password;
 
     public Login(){
         //frame code
@@ -60,25 +63,28 @@ public class Login extends JFrame{
         p2.add(tfpassword);
 
         //Button
-        JButton login = new JButton("Login");
+        login = new JButton("Login");
         login.setBounds(60,200,130,30);
         login.setBackground(new Color(131,193,233));
         login.setForeground(Color.white);
         login.setBorder(BorderFactory.createEmptyBorder());
+        login.addActionListener(this);
         p2.add(login);
 
-        JButton signup = new JButton("Sign Up");
+        signup = new JButton("Sign Up");
         signup.setBounds(230,200,130,30);
         signup.setBackground(new Color(131,193,233));
         signup.setForeground(Color.white);
         signup.setBorder(BorderFactory.createEmptyBorder());
+        signup.addActionListener(this);
         p2.add(signup);
 
-        JButton password = new JButton("Forgot Password");
+        password = new JButton("Forgot Password");
         password.setBounds(145,245,130,30);
         password.setBackground(new Color(131,193,233));
         password.setForeground(Color.white);
         password.setBorder(BorderFactory.createEmptyBorder());
+        password.addActionListener(this);
         p2.add(password);
 
         JLabel text = new JLabel("Trouble in login...");
@@ -88,6 +94,15 @@ public class Login extends JFrame{
 
 
         setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent actionEvent) {
+        if (actionEvent.getSource() == login) {
+
+        } else if (actionEvent.getSource() == signup) {
+            setVisible(false);
+            new Signup();
+        }
     }
 
     public static void main(String[] args){
