@@ -3,11 +3,14 @@ package Hotel.Management.System;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.ResultSet;
 
 
 public class Login extends JFrame implements ActionListener {
 
     private JButton login,signup,password;
+    private JTextField tfusername;
+    private JPasswordField tfpassword;
 
     public Login(){
         //frame code
@@ -47,7 +50,7 @@ public class Login extends JFrame implements ActionListener {
         lblusername.setFont(new Font(Font.SANS_SERIF,Font.PLAIN,20));
         p2.add(lblusername);
 
-        JTextField tfusername = new JTextField();
+        tfusername = new JTextField();
         tfusername.setBounds(60,60,300,30);
         tfusername.setBorder(BorderFactory.createEmptyBorder());
         p2.add(tfusername);
@@ -57,7 +60,7 @@ public class Login extends JFrame implements ActionListener {
         lblpassword.setFont(new Font(Font.SANS_SERIF,Font.PLAIN,20));
         p2.add(lblpassword);
 
-        JTextField tfpassword = new JTextField();
+        tfpassword = new JPasswordField();
         tfpassword.setBounds(60,150,300,30);
         tfpassword.setBorder(BorderFactory.createEmptyBorder());
         p2.add(tfpassword);
@@ -98,6 +101,25 @@ public class Login extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource() == login) {
+            String password = tfpassword.getText().trim();
+//            String query = "select * from account where username = '"+tfusername.getText().trim()+"' and password = '"+tfpassword.getText().trim()+"'";
+            String query = "select * from account where username = '"+tfusername.getText().trim()+"'";
+            try {
+                Conn c = new Conn();
+                ResultSet rs = c.s.executeQuery(query);
+                while (rs.next()) {
+                    if (password.equals(rs.getString("password").trim())) {
+                        setVisible(false);
+                        new Loading(rs.getString("name").toUpperCase());
+                    } else {
+                        JOptionPane.showMessageDialog(Login.this,"Invalid Username or Password :(");
+                    }
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
 
         } else if (actionEvent.getSource() == signup) {
             setVisible(false);
