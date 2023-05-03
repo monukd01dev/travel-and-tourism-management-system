@@ -5,6 +5,7 @@ import com.mysql.cj.callback.UsernameCallback;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
+import java.sql.ResultSet;
 
 public class ForgetPassword extends JFrame implements ActionListener {
 
@@ -45,6 +46,7 @@ public class ForgetPassword extends JFrame implements ActionListener {
         p1.add(lblusername);
 
         tfusername = new JTextField();
+//        tfusername.setText("monukd");
         tfusername.setBounds(220,20,220,30);
         tfusername.setBorder(BorderFactory.createEmptyBorder());
         p1.add(tfusername);
@@ -57,6 +59,7 @@ public class ForgetPassword extends JFrame implements ActionListener {
         tfname = new JTextField();
         tfname.setBounds(220,70,220,30);
         tfname.setBorder(BorderFactory.createEmptyBorder());
+        tfname.setEditable(false);
         p1.add(tfname);
 
         JLabel lblquestion = new JLabel("Your Security Question");
@@ -67,6 +70,7 @@ public class ForgetPassword extends JFrame implements ActionListener {
         tfquestion = new JTextField();
         tfquestion.setBounds(220,120,320,30);
         tfquestion.setBorder(BorderFactory.createEmptyBorder());
+        tfquestion.setEditable(false);
         p1.add(tfquestion);
 
         JLabel lblanswer = new JLabel("Answer");
@@ -77,6 +81,7 @@ public class ForgetPassword extends JFrame implements ActionListener {
         tfanswer = new JTextField();
         tfanswer.setBounds(220,170,220,30);
         tfanswer.setBorder(BorderFactory.createEmptyBorder());
+        tfanswer.setEditable(false);
         p1.add(tfanswer);
 
         JLabel lblpassword = new JLabel("Password");
@@ -87,6 +92,7 @@ public class ForgetPassword extends JFrame implements ActionListener {
         tfpassword = new JTextField();
         tfpassword.setBounds(220,220,220,30);
         tfpassword.setBorder(BorderFactory.createEmptyBorder());
+        tfpassword.setEditable(false);
         p1.add(tfpassword);
 
         //buttons
@@ -119,7 +125,46 @@ public class ForgetPassword extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource() == search) {
 
+            if (tfusername.getText().trim().equals("")) {
+                JOptionPane.showMessageDialog(ForgetPassword.this, "Please Enter Username");
+            } else {
+
+                String query = "select * from account where username = '"+tfusername.getText().trim()+"'";
+                try {
+                    Conn c = new Conn();
+                    ResultSet rs = c.s.executeQuery(query);
+                    while (rs.next()) {
+                        tfusername.setText(rs.getString("username"));
+                        tfname.setText(rs.getString("name"));
+                        tfquestion.setText(rs.getString("security"));
+                        tfanswer.setEditable(true);
+                    }
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+
         } else if (actionEvent.getSource() == retrieve) {
+
+            String query = "select * from account where username = '"+tfusername.getText().trim()+"'";
+            try {
+                Conn c = new Conn();
+                ResultSet rs = c.s.executeQuery(query);
+                while (rs.next()) {
+                    if (rs.getString("answer").trim().equals(tfanswer.getText().trim())) {
+                        tfpassword.setText(rs.getString("password"));
+                        tfanswer.setEditable(false);
+                    } else {
+                        JOptionPane.showMessageDialog(ForgetPassword.this,"Password Doesn't Match :(");
+                    }
+
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
 
         } else if (actionEvent.getSource() == back) {
             setVisible(false);
