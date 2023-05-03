@@ -5,13 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5e61f05b-e7c7-4fee-9dba-02d2e96a39c8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Notes/SqlConnectionNotes.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Hotel/Management/System/Conn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Hotel/Management/System/ForgetPassword.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/icons/forgot-password.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Hotel/Management/System/ForgetPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hotel/Management/System/ForgetPassword.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Hotel/Management/System/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hotel/Management/System/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Hotel/Management/System/Signup.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Hotel/Management/System/Signup.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
