@@ -7,6 +7,7 @@ public class Loading extends JFrame implements Runnable{
 
     Thread t;
     JProgressBar bar;
+    String username;
 
     public void run() {
         try {
@@ -18,17 +19,19 @@ public class Loading extends JFrame implements Runnable{
                     bar.setValue(bar.getValue() + 1);
                 } else {
                     setVisible(false);
-                    //new
+                    new Dashboard(username);
                 }
                 Thread.sleep(50);
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
     }
 
-    public Loading(String username) {
+    public Loading(String name,String username ) {
+        this.username=username;
         t = new Thread(this);
         setSize(600, 400);
         setLocationRelativeTo(null);
@@ -54,7 +57,7 @@ public class Loading extends JFrame implements Runnable{
         loading.setBounds(200,120,500,30);
         add(loading);
 
-        JLabel welcome = new JLabel("Welcome "+username);
+        JLabel welcome = new JLabel("Welcome "+name);
         welcome.setForeground(Color.RED);
         welcome.setFont(new Font("Raleways",Font.BOLD,20));
         welcome.setBounds(55,300,500,25);
@@ -67,8 +70,4 @@ public class Loading extends JFrame implements Runnable{
 
     }
 
-
-    public static void main(String[] args) {
-        new Loading("Monu KD");
-    }
 }

@@ -103,6 +103,7 @@ public class Login extends JFrame implements ActionListener {
         if (actionEvent.getSource() == login) {
             String password = tfpassword.getText().trim();
 //            String query = "select * from account where username = '"+tfusername.getText().trim()+"' and password = '"+tfpassword.getText().trim()+"'";
+
             String query = "select * from account where username = '"+tfusername.getText().trim()+"'";
             try {
                 Conn c = new Conn();
@@ -110,7 +111,7 @@ public class Login extends JFrame implements ActionListener {
                 while (rs.next()) {
                     if (password.equals(rs.getString("password").trim())) {
                         setVisible(false);
-                        new Loading(rs.getString("name").toUpperCase());
+                        new Loading(rs.getString("name").toUpperCase(),rs.getString("username"));
                     } else {
                         JOptionPane.showMessageDialog(Login.this,"Invalid Username or Password :(");
                     }
