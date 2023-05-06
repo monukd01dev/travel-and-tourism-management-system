@@ -98,6 +98,7 @@ public class Dashboard extends JFrame implements ActionListener {
         checkPackage.setBackground(new Color(0,0,103));
         checkPackage.setMargin(new Insets(0,0,0,110));
         checkPackage.setFocusPainted(false);
+        checkPackage.addActionListener(this);
         p2.add(checkPackage);
 
         bookPackage = new JButton("Book Package");
@@ -217,6 +218,8 @@ public class Dashboard extends JFrame implements ActionListener {
             new ViewCustomer(this.username);
         } else if (actionEvent.getSource() == updatePersonalDetails) {
             new UpdateCustomer(this.username);
+        } else if (actionEvent.getSource() == checkPackage) {
+            new CheckPackage();
         }
     }
 
