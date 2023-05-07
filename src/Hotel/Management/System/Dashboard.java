@@ -4,7 +4,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.print.Book;
 
 public class Dashboard extends JFrame implements ActionListener {
 
@@ -119,6 +118,7 @@ public class Dashboard extends JFrame implements ActionListener {
         viewPackage.setBackground(new Color(0,0,103));
         viewPackage.setMargin(new Insets(0,0,0,120));
         viewPackage.setFocusPainted(false);
+        viewPackage.addActionListener(this);
         p2.add(viewPackage);
 
         viewHotels = new JButton("View Hotels");
@@ -128,6 +128,7 @@ public class Dashboard extends JFrame implements ActionListener {
         viewHotels.setBackground(new Color(0,0,103));
         viewHotels.setMargin(new Insets(0,0,0,140));
         viewHotels.setFocusPainted(false);
+        viewHotels.addActionListener(this);
         p2.add(viewHotels);
 
         bookHotel = new JButton("Book Hotel");
@@ -137,6 +138,7 @@ public class Dashboard extends JFrame implements ActionListener {
         bookHotel.setBackground(new Color(0,0,103));
         bookHotel.setMargin(new Insets(0,0,0,145));
         bookHotel.setFocusPainted(false);
+        bookHotel.addActionListener(this);
         p2.add(bookHotel);
 
         viewBookedHotel = new JButton("View Booked Hotel");
@@ -155,6 +157,7 @@ public class Dashboard extends JFrame implements ActionListener {
         destinations.setBackground(new Color(0,0,103));
         destinations.setMargin(new Insets(0,0,0,120));
         destinations.setFocusPainted(false);
+        destinations.addActionListener(this);
         p2.add(destinations);
 
         payments = new JButton("Payments");
@@ -223,11 +226,19 @@ public class Dashboard extends JFrame implements ActionListener {
         } else if (actionEvent.getSource() == checkPackage) {
             new CheckPackage();
         } else if (actionEvent.getSource() == bookPackage) {
-            new BookPackage(this.username);
+            new BookHotel(this.username);
+        } else if (actionEvent.getSource() == viewPackage) {
+            new ViewPackage(username);
+        } else if (actionEvent.getSource() == viewHotels) {
+            new ViewHotels();
+        } else if (actionEvent.getSource() == bookHotel) {
+            new BookHotel(username);
+        } else if (actionEvent.getSource() == destinations) {
+            new Destinations();
         }
     }
 
     public static void main(String[] args) {
-
+        new Dashboard("");
     }
 }
