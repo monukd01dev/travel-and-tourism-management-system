@@ -4,6 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.print.Book;
 
 public class Dashboard extends JFrame implements ActionListener {
 
@@ -108,6 +109,7 @@ public class Dashboard extends JFrame implements ActionListener {
         bookPackage.setBackground(new Color(0,0,103));
         bookPackage.setMargin(new Insets(0,0,0,120));
         bookPackage.setFocusPainted(false);
+        bookPackage.addActionListener(this);
         p2.add(bookPackage);
 
         viewPackage = new JButton("View Package");
@@ -220,6 +222,8 @@ public class Dashboard extends JFrame implements ActionListener {
             new UpdateCustomer(this.username);
         } else if (actionEvent.getSource() == checkPackage) {
             new CheckPackage();
+        } else if (actionEvent.getSource() == bookPackage) {
+            new BookPackage(this.username);
         }
     }
 
