@@ -195,7 +195,7 @@ public class UpdateCustomer extends JFrame implements ActionListener {
             String phone = tfphone.getText();
             String email = tfemail.getText();
 
-            String query = "update customer set username = '"+username+"', id ='"+id+"',number ='"+number+"',name = '"+name+"',gender ='"+gender+"',country = '"+country+"',address = '"+address+"',phone = '"+phone+"',email = '"+email+"'";
+            String query = "update customer set id ='"+id+"',number ='"+number+"',name = '"+name+"',gender ='"+gender+"',country = '"+country+"',address = '"+address+"',phone = '"+phone+"',email = '"+email+"'";
 
             try {
                 Conn c = new Conn();
