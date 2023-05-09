@@ -5,6 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
+import java.util.Objects;
 
 public class BookHotel extends JFrame implements ActionListener {
 
@@ -50,7 +51,7 @@ public class BookHotel extends JFrame implements ActionListener {
         lblselecthotel.setFont(new Font("Tahoma",Font.BOLD,17));
         add(lblselecthotel);
 
-        combohotel = new JComboBox(new String[]{"The Night Rise Hotel","The Day Bringer Hotel","Loan Harper Motel","Seven Seas Motel","Neon Ring Hotel","Melano Heaven Motel","Eksa Red Hotel","Aeth Wonder Hotel","Deadly Moon Motel","KD's Love Motel"});
+        combohotel = new JComboBox(new String[]{"The Night Rise Hotel","The Day Bringer Hotel","Loan Harper Motel"});
         combohotel.setBounds(270,130,250,25);//30 up
         combohotel.setBackground(Color.white);
         combohotel.setFont(new Font("Tahoma",Font.PLAIN,15));
@@ -74,7 +75,7 @@ public class BookHotel extends JFrame implements ActionListener {
 
         tfday = new JTextField();
         tfday.setBounds(270,217,250,23);
-        tfday.setFont(new Font("Tahoma",Font.PLAIN,23));
+        tfday.setFont(new Font("Tahoma",Font.PLAIN,17));
         add(tfday);
 
         JLabel lblac = new JLabel("AC");
@@ -212,10 +213,41 @@ public class BookHotel extends JFrame implements ActionListener {
             cost*=persons;
             labeltotalprice.setText(""+cost);
 
+        } else if (actionEvent.getSource() == btncheckprice) {
+            try {
+                int totalPrice = 0;
+                int totalpersn = Integer.parseInt(tftotalpersons.getText());
+                int totalday = Integer.parseInt(tfday.getText());
+                int costperperson = 0;
+                int acroom = 0;
+                int food = 0;
+                String hotel = (String) combohotel.getSelectedItem();
+
+                Conn c = new Conn();
+                ResultSet rs = c.s.executeQuery("select * from hotel where hotel = '" + hotel + "'");
+                if (Objects.equals((String) comboac.getSelectedItem(), "Yes")) {
+                    acroom = Integer.parseInt(rs.getString("acroom"));
+                }
+                if (Objects.equals((String) combofood.getSelectedItem(), "Yes")) {
+                    food = Integer.parseInt(rs.getString("food"));
+                }
+                costperperson = Integer.parseInt(rs.getString("costperperson"));
+
+                totalPrice = totalpersn * (costperperson + acroom + food);
+
+
+                totalPrice *=totalday;
+
+                labeltotalprice.setText(""+totalPrice);
+
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } else if (actionEvent.getSource() == btnbookpackage) {
             try {
                 Conn c = new Conn();
-                String query = "insert into bookpackage values('"+labelusername.getText()+"','"+((String) combohotel.getSelectedItem())+"','"+tftotalpersons.getText()+"','"+labelid.getText()+"','"+labelnumber.getText()+"','"+labelphone.getText()+"','"+labeltotalprice.getText()+"')";
+                String query = "insert into bookhotel values('"+labelusername.getText()+"','"+((String) combohotel.getSelectedItem())+"','"+tftotalpersons.getText()+"','"+tfday.getText()+"','"+((String) comboac.getSelectedItem())+"','"+((String) combofood.getSelectedItem())+"','"+labelid.getText()+"','"+labelnumber.getText()+"','"+labelphone.getText()+"','"+labeltotalprice.getText()+"')";
                 c.s.executeUpdate(query);
                 JOptionPane.showMessageDialog(this,"Package Booked Successfully...");
             } catch (Exception e) {

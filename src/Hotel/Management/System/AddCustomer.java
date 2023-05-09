@@ -215,6 +215,7 @@ public class AddCustomer extends JFrame implements ActionListener {
 
             } catch (Exception e) {
                 JOptionPane.showMessageDialog(this,"You have already added your details...");
+                setVisible(false);
                 e.printStackTrace();
             }
         } else if (actionEvent.getSource() == btnback) {

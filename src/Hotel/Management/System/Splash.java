@@ -39,8 +39,8 @@ public class Splash extends JFrame implements Runnable{
         Splash frame = new Splash();
 
         for(int i =0; i<=600;i++){
-            frame.setLocation((760-i),(1000-i)/4); //laptop
-//            frame.setLocation((960-i),(1400-i)/4); //PC
+//            frame.setLocation((760-i),(1000-i)/4); //laptop
+            frame.setLocation((960-i),(1400-i)/4); //PC
 
             frame.setSize(i*2,i);
             try{
