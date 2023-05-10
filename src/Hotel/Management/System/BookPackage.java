@@ -12,9 +12,10 @@ public class BookPackage extends JFrame implements ActionListener {
     JComboBox combopackage;
     JTextField tftotalpersons;
     JLabel labeltotalprice,labelusername,labelid,labelnumber,labelphone;
+    String username;
 
     public BookPackage(String username) {
-
+        this.username = username;
         setSize(1200, 550);
         setLayout(null);
         getContentPane().setBackground(Color.white);
@@ -186,6 +187,10 @@ public class BookPackage extends JFrame implements ActionListener {
                 c.s.executeUpdate(query);
                 JOptionPane.showMessageDialog(this,"Package Booked Successfully...");
             } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "You Have Already Booked A Package...");
+
+                setVisible(false);
+                new ViewPackage(username);
                 e.printStackTrace();
             }
         } else {

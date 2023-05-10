@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
+
 
 public class Dashboard extends JFrame implements ActionListener {
 
@@ -148,6 +150,7 @@ public class Dashboard extends JFrame implements ActionListener {
         viewBookedHotel.setBackground(new Color(0,0,103));
         viewBookedHotel.setMargin(new Insets(0,0,0,60));
         viewBookedHotel.setFocusPainted(false);
+        viewBookedHotel.addActionListener(this);
         p2.add(viewBookedHotel);
 
         destinations = new JButton("Destinations");
@@ -167,6 +170,7 @@ public class Dashboard extends JFrame implements ActionListener {
         payments.setBackground(new Color(0,0,103));
         payments.setMargin(new Insets(0,0,0,140));
         payments.setFocusPainted(false);
+        payments.addActionListener(this);
         p2.add(payments);
 
         calculator = new JButton("Calculator");
@@ -176,6 +180,7 @@ public class Dashboard extends JFrame implements ActionListener {
         calculator.setBackground(new Color(0,0,103));
         calculator.setMargin(new Insets(0,0,0,140));
         calculator.setFocusPainted(false);
+        calculator.addActionListener(this);
         p2.add(calculator);
 
         notepad = new JButton("Notepad");
@@ -185,6 +190,7 @@ public class Dashboard extends JFrame implements ActionListener {
         notepad.setBackground(new Color(0,0,103));
         notepad.setMargin(new Insets(0,0,0,160));
         notepad.setFocusPainted(false);
+        notepad.addActionListener(this);
         p2.add(notepad);
 
         about = new JButton("About");
@@ -194,6 +200,7 @@ public class Dashboard extends JFrame implements ActionListener {
         about.setBackground(new Color(0,0,103));
         about.setMargin(new Insets(0,0,0,180));
         about.setFocusPainted(false);
+        about.addActionListener(this);
         p2.add(about);
 
         //home image
@@ -235,7 +242,30 @@ public class Dashboard extends JFrame implements ActionListener {
             new BookHotel(username);
         } else if (actionEvent.getSource() == destinations) {
             new Destinations();
+        } else if (actionEvent.getSource() == viewBookedHotel) {
+            new ViewBookedHotel(username);
+        } else if (actionEvent.getSource() == calculator) {
+            try {
+                Runtime.getRuntime().exec("calc.exe");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }else if (actionEvent.getSource() == notepad) {
+            try {
+                Runtime.getRuntime().exec("notepad.exe");
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } else if (actionEvent.getSource() == payments) {
+            try {
+                Desktop.getDesktop().browse(new URL("https://www.google.com/").toURI());
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
+
+
     }
 
     public static void main(String[] args) {

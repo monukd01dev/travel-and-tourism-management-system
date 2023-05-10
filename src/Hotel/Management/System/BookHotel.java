@@ -14,9 +14,10 @@ public class BookHotel extends JFrame implements ActionListener {
     JComboBox combohotel,comboac,combofood;
     JTextField tftotalpersons,tfday;
     JLabel labeltotalprice,labelusername,labelid,labelnumber,labelphone;
+    String username;
 
     public BookHotel(String username) {
-
+        this.username = username;
         setSize(1200, 625);
         setLayout(null);
         getContentPane().setBackground(Color.white);
@@ -235,6 +236,11 @@ public class BookHotel extends JFrame implements ActionListener {
                 c.s.executeUpdate(query);
                 JOptionPane.showMessageDialog(this,"Package Booked Successfully...");
             } catch (Exception e) {
+                JOptionPane.showMessageDialog(this, "You Have Already Done Your Booking...");
+
+                setVisible(false);
+                new ViewBookedHotel(username);
+
                 e.printStackTrace();
             }
         } else {
