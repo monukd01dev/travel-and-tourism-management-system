@@ -1,6 +1,7 @@
 package Hotel.Management.System;
 
 import javax.swing.*;
+import javax.xml.transform.Result;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -158,6 +159,7 @@ public class BookHotel extends JFrame implements ActionListener {
         btnbookpackage.setFocusPainted(false);
         btnbookpackage.setFont(new Font("Tahoma",Font.PLAIN,15));
         btnbookpackage.addActionListener(this);
+        btnbookpackage.setEnabled(false);
         add(btnbookpackage);
 
         btnback = new JButton("BACK");
@@ -198,51 +200,33 @@ public class BookHotel extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
-        if (actionEvent.getSource() == btncheckprice) {
-            String Package = (String) combohotel.getSelectedItem();
-            int cost = 0;
-            int persons = Integer.parseInt(tftotalpersons.getText());
+         if (actionEvent.getSource() == btncheckprice) {
 
-            if (Package.equals("Gold Package")) {
-                cost+=12000;
-            } else if (Package.equals("Silver Package")) {
-                cost += 24000;
-            } else {
-                cost+=36000;
-            }
-            cost*=persons;
-            labeltotalprice.setText(""+cost);
-
-        } else if (actionEvent.getSource() == btncheckprice) {
-            try {
-                int totalPrice = 0;
-                int totalpersn = Integer.parseInt(tftotalpersons.getText());
-                int totalday = Integer.parseInt(tfday.getText());
-                int costperperson = 0;
-                int acroom = 0;
-                int food = 0;
-                String hotel = (String) combohotel.getSelectedItem();
+             try {
 
                 Conn c = new Conn();
-                ResultSet rs = c.s.executeQuery("select * from hotel where hotel = '" + hotel + "'");
-                if (Objects.equals((String) comboac.getSelectedItem(), "Yes")) {
-                    acroom = Integer.parseInt(rs.getString("acroom"));
-                }
-                if (Objects.equals((String) combofood.getSelectedItem(), "Yes")) {
-                    food = Integer.parseInt(rs.getString("food"));
-                }
-                costperperson = Integer.parseInt(rs.getString("costperperson"));
-
-                totalPrice = totalpersn * (costperperson + acroom + food);
-
-
-                totalPrice *=totalday;
-
-                labeltotalprice.setText(""+totalPrice);
-
+                ResultSet rs = c.s.executeQuery("select * from hotel where hotel = '"+((String) combohotel.getSelectedItem())+"'");
+                 while (rs.next()) {
+                     int cost = 0;
+                     int TotalDays = Integer.parseInt(tfday.getText().trim());
+                     int TotalPerson = Integer.parseInt(tftotalpersons.getText().trim());
+                     int CostPerPerson = Integer.parseInt(rs.getString("costperperson"));
+                     int AcRoom = 0;
+                     int Food = 0;
+                     if (Objects.equals(((String) comboac.getSelectedItem()),"Yes")) {
+                         AcRoom = Integer.parseInt(rs.getString("acroom"));
+                     }
+                     if (Objects.equals(((String) combofood.getSelectedItem()),"Yes")) {
+                         Food = Integer.parseInt(rs.getString("food"));
+                     }
+                     cost = TotalDays * (TotalPerson * (CostPerPerson + AcRoom + Food));
+                     labeltotalprice.setText("Rs "+cost+"/-");
+                     btnbookpackage.setEnabled(true);
+                 }
 
             } catch (Exception e) {
                 e.printStackTrace();
+                JOptionPane.showMessageDialog(this, "Please Select A Hotel...");
             }
         } else if (actionEvent.getSource() == btnbookpackage) {
             try {
