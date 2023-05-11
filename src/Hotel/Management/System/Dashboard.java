@@ -91,6 +91,7 @@ public class Dashboard extends JFrame implements ActionListener {
         deletePersonalDetails.setBackground(new Color(0,0,103));
         deletePersonalDetails.setMargin(new Insets(0,0,0,30));
         deletePersonalDetails.setFocusPainted(false);
+        deletePersonalDetails.addActionListener(this);
         p2.add(deletePersonalDetails);
 
         checkPackage = new JButton("Check Package");
@@ -263,6 +264,9 @@ public class Dashboard extends JFrame implements ActionListener {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        } else if (actionEvent.getSource() == deletePersonalDetails) {
+            new DeleteAccount(username);
+
         }
 
 

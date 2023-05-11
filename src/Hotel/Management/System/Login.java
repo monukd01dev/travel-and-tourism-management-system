@@ -108,13 +108,18 @@ public class Login extends JFrame implements ActionListener {
             try {
                 Conn c = new Conn();
                 ResultSet rs = c.s.executeQuery(query);
-                while (rs.next()) {
+                if (rs.next()) {
                     if (password.equals(rs.getString("password").trim())) {
                         setVisible(false);
-                        new Loading(rs.getString("name").toUpperCase(),rs.getString("username"));
+                        new Loading(rs.getString("name").toUpperCase(), rs.getString("username"));
                     } else {
-                        JOptionPane.showMessageDialog(Login.this,"Invalid Username or Password :(");
+                        JOptionPane.showMessageDialog(Login.this, "Invalid Username or Password :(");
+
                     }
+                } else {
+                    JOptionPane.showMessageDialog(this,"Username doesn't exits... Pls Signup");
+                    tfusername.setText(null);
+                    tfpassword.setText(null);
                 }
 
             } catch (Exception e) {
