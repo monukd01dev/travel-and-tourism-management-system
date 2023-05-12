@@ -170,8 +170,8 @@ public class UpdateCustomer extends JFrame implements ActionListener {
 
             }
             else {
-                JOptionPane.showMessageDialog(this,"Can't find your details -_- lol");
-                setVisible(false);
+                JOptionPane.showMessageDialog(this,"Please add your details...");
+                dispose();
             }
 
 

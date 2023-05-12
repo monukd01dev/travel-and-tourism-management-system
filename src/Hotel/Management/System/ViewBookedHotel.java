@@ -176,8 +176,8 @@ public class ViewBookedHotel extends JFrame implements ActionListener {
                     labelphone.setText(rs.getString("phone"));
                     labeltotalprice.setText(rs.getString("price"));
                 } else {
-                    JOptionPane.showMessageDialog(this,"Can't find your details -_- lol");
-
+                    JOptionPane.showMessageDialog(this,"Haven't Booked Yet...");
+                    dispose();
                 }
 
             } catch (Exception e) {

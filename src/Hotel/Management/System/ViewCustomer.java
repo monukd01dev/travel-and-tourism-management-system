@@ -128,6 +128,8 @@ public class ViewCustomer extends JFrame implements ActionListener {
         image.setBounds(0,402,1000,280);
         add(image);
 
+        //endline
+        setVisible(true);
 
 //        db code
         try {
@@ -146,7 +148,8 @@ public class ViewCustomer extends JFrame implements ActionListener {
                 labelphone.setText(rs.getString("phone"));
                 labelemail.setText(rs.getString("email"));
             } else {
-                JOptionPane.showMessageDialog(this,"Can't find your details -_- lol");
+                JOptionPane.showMessageDialog(this,"Please add your details...");
+                dispose();
             }
 
         } catch (Exception e) {
@@ -155,8 +158,6 @@ public class ViewCustomer extends JFrame implements ActionListener {
 
 
 
-        //endline
-        setVisible(true);
 
     }
 

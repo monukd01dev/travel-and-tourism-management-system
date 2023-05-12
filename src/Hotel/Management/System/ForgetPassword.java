@@ -108,6 +108,7 @@ public class ForgetPassword extends JFrame implements ActionListener {
         retrieve.setBackground(Color.gray);
         retrieve.setForeground(Color.WHITE);
         retrieve.addActionListener(this);
+        retrieve.setEnabled(false);
         p1.add(retrieve);
 
         back = new JButton("Back");
@@ -127,17 +128,24 @@ public class ForgetPassword extends JFrame implements ActionListener {
 
             if (tfusername.getText().trim().equals("")) {
                 JOptionPane.showMessageDialog(ForgetPassword.this, "Please Enter Username");
+                reset();
             } else {
 
                 String query = "select * from account where username = '"+tfusername.getText().trim()+"'";
                 try {
                     Conn c = new Conn();
                     ResultSet rs = c.s.executeQuery(query);
-                    while (rs.next()) {
-                        tfusername.setText(rs.getString("username"));
-                        tfname.setText(rs.getString("name"));
-                        tfquestion.setText(rs.getString("security"));
-                        tfanswer.setEditable(true);
+                    if (rs.next()) {
+//                        while (rs.next()) {
+                            tfusername.setText(rs.getString("username"));
+                            tfname.setText(rs.getString("name"));
+                            tfquestion.setText(rs.getString("security"));
+                            tfanswer.setEditable(true);
+                            retrieve.setEnabled(true);
+//                        }
+                    } else {
+                        JOptionPane.showMessageDialog(this,"Try Hard & Enter Correct Username..");
+                        reset();
                     }
 
                 } catch (Exception e) {
@@ -149,6 +157,10 @@ public class ForgetPassword extends JFrame implements ActionListener {
         } else if (actionEvent.getSource() == retrieve) {
 
             String query = "select * from account where username = '"+tfusername.getText().trim()+"'";
+            if (tfanswer.getText().trim().equals("")) {
+                JOptionPane.showMessageDialog(this,"Please Enter the Answer...");
+            } else {
+
             try {
                 Conn c = new Conn();
                 ResultSet rs = c.s.executeQuery(query);
@@ -158,6 +170,7 @@ public class ForgetPassword extends JFrame implements ActionListener {
                         tfanswer.setEditable(false);
                     } else {
                         JOptionPane.showMessageDialog(ForgetPassword.this,"Password Doesn't Match :(");
+                        tfanswer.setText("");
                     }
 
                 }
@@ -165,11 +178,21 @@ public class ForgetPassword extends JFrame implements ActionListener {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            }
 
         } else if (actionEvent.getSource() == back) {
             setVisible(false);
             new Login();
         }
+    }
+
+    void reset() {
+        tfusername.setText("");
+        tfname.setText("");
+        tfquestion.setText("");
+        tfanswer.setEditable(false);
+        tfanswer.setText("");
+        retrieve.setEnabled(false);
     }
 
     public static void main(String[] args) {

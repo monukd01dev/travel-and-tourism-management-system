@@ -259,7 +259,7 @@ public class Dashboard extends JFrame implements ActionListener {
             }
         } else if (actionEvent.getSource() == payments) {
             try {
-                Desktop.getDesktop().browse(new URL("https://www.google.com/").toURI());
+                Desktop.getDesktop().browse(new URL("https://paytm.com/").toURI());
 
             } catch (Exception e) {
                 e.printStackTrace();

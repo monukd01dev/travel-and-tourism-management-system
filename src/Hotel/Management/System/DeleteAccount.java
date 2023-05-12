@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 
 public class DeleteAccount extends JFrame implements ActionListener {
 
-    JButton btndelete;
+    JButton btndelete,btnback;
     String username;
     public DeleteAccount(String username) {
             this.username = username;
@@ -112,13 +112,22 @@ public class DeleteAccount extends JFrame implements ActionListener {
 
             //Button
             btndelete = new JButton("DELETE");
-            btndelete.setBounds(425,400,150,40);//30 up
+            btndelete.setBounds(330,400,150,40);//30 up
             btndelete.setBackground(Color.black);
             btndelete.setForeground(Color.white);
             btndelete.setFocusPainted(false);
             btndelete.setFont(new Font("Tahoma",Font.PLAIN,17));
             btndelete.addActionListener(this);
             add(btndelete);
+
+            btnback = new JButton("BACK");
+            btnback.setBounds(505,400,150,40);//30 up
+            btnback.setBackground(Color.black);
+            btnback.setForeground(Color.white);
+            btnback.setFocusPainted(false);
+            btnback.setFont(new Font("Tahoma",Font.PLAIN,17));
+            btnback.addActionListener(this);
+            add(btnback);
 
             //image
             ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("icons/ViewDetails.png"));
@@ -129,6 +138,8 @@ public class DeleteAccount extends JFrame implements ActionListener {
             image.setBounds(0,402,1000,280);
             add(image);
 
+            //endline
+            setVisible(true);
 
 //        db code
             try {
@@ -147,7 +158,7 @@ public class DeleteAccount extends JFrame implements ActionListener {
                     labelphone.setText(rs.getString("phone"));
                     labelemail.setText(rs.getString("email"));
                 } else {
-                    JOptionPane.showMessageDialog(this,"Can't find your details -_- lol");
+                    JOptionPane.showMessageDialog(this,"Clicking On Delete Will Permanently Delete Your Account...");
                 }
 
             } catch (Exception e) {
@@ -156,8 +167,7 @@ public class DeleteAccount extends JFrame implements ActionListener {
 
 
 
-            //endline
-            setVisible(true);
+
 
         }
 
@@ -165,18 +175,20 @@ public class DeleteAccount extends JFrame implements ActionListener {
             if (actionEvent.getSource() == btndelete) {
                 try {
                     Conn c = new Conn();
-                    c.s.executeUpdate("delete from account where username = '"+username+"'");
-                    c.s.executeUpdate("delete from customer where username = '"+username+"'");
-                    c.s.executeUpdate("delete from bookhotel where username = '"+username+"'");
-                    c.s.executeUpdate("delete from bookpackage where username = '"+username+"'");
+                    c.s.executeUpdate("delete from account where username = '" + username + "'");
+                    c.s.executeUpdate("delete from customer where username = '" + username + "'");
+                    c.s.executeUpdate("delete from bookhotel where username = '" + username + "'");
+                    c.s.executeUpdate("delete from bookpackage where username = '" + username + "'");
 
-                    JOptionPane.showMessageDialog(this ,"Account Deleted Successfully");
+                    JOptionPane.showMessageDialog(this, "Account Deleted Successfully");
 
                     System.exit(0);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 setVisible(false);
+            } else {
+                dispose();
             }
         }
 

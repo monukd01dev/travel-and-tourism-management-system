@@ -153,7 +153,8 @@ public class BookPackage extends JFrame implements ActionListener {
             labelnumber.setText(rs.getString("number"));
             labelphone.setText(rs.getString("phone"));
         } else {
-            JOptionPane.showMessageDialog(this,"Can't find your details -_- lol");
+            JOptionPane.showMessageDialog(this,"Please Add Your Details...");
+            dispose();
 
         }
 

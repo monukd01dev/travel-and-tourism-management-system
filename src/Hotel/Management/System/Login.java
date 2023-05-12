@@ -114,6 +114,7 @@ public class Login extends JFrame implements ActionListener {
                         new Loading(rs.getString("name").toUpperCase(), rs.getString("username"));
                     } else {
                         JOptionPane.showMessageDialog(Login.this, "Invalid Username or Password :(");
+                        tfpassword.setText("");
 
                     }
                 } else {

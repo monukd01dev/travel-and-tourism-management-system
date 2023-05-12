@@ -132,8 +132,8 @@ public class ViewPackage extends JFrame implements ActionListener {
                 labeltotalprice.setText(rs.getString("price"));
 
             } else {
-                JOptionPane.showMessageDialog(this, "Can't Fetch Your Details -_- lol...");
-                setVisible(false);
+                JOptionPane.showMessageDialog(this, "You Haven't Booked Yet...");
+                dispose();
             }
         } catch (Exception e) {
             e.printStackTrace();
