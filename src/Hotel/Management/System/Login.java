@@ -120,6 +120,8 @@ public class Login extends JFrame implements ActionListener {
                     JOptionPane.showMessageDialog(this,"Username doesn't exits... Pls Signup");
                     tfusername.setText(null);
                     tfpassword.setText(null);
+                    dispose();
+                    new Signup();
                 }
 
             } catch (Exception e) {
