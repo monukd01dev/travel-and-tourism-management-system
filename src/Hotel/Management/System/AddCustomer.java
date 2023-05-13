@@ -175,10 +175,16 @@ public class AddCustomer extends JFrame implements ActionListener {
                 labelusername.setText(rs.getString("username"));
                 labelname.setText(rs.getString("name"));
             } else {
-                JOptionPane.showMessageDialog(this,"Can't find your details -_- lol");
+                JOptionPane.showMessageDialog(this,"Can't find your details...");
                 setVisible(false);
             }
 
+                ResultSet rs1 = c.s.executeQuery("select * from customer where username = '"+username+"'");
+                if (rs1.next()) {
+                    JOptionPane.showMessageDialog(this,"You have already added your details...");
+                    dispose();
+                    new ViewCustomer(username);
+                }
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -214,8 +220,7 @@ public class AddCustomer extends JFrame implements ActionListener {
                 setVisible(false);
 
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(this,"You have already added your details...");
-                setVisible(false);
+
                 e.printStackTrace();
             }
         } else if (actionEvent.getSource() == btnback) {
@@ -224,7 +229,7 @@ public class AddCustomer extends JFrame implements ActionListener {
     }
 
 
-    public static void main(String[] args) {
-        new AddCustomer("");
-    }
+//    public static void main(String[] args) {
+//        new AddCustomer("");
+//    }
 }

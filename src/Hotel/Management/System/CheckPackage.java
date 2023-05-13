@@ -51,8 +51,8 @@ public class CheckPackage extends JFrame {
         return i3;
     }
 
-    public static void main(String[] args) {
-        new CheckPackage();
-    }
+//    public static void main(String[] args) {
+//        new CheckPackage();
+//    }
 
 }

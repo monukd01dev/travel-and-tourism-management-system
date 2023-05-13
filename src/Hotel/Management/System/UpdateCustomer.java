@@ -212,7 +212,7 @@ public class UpdateCustomer extends JFrame implements ActionListener {
     }
 
 
-    public static void main(String[] args) {
-        new UpdateCustomer("");
-    }
+//    public static void main(String[] args) {
+//        new UpdateCustomer("");
+//    }
 }

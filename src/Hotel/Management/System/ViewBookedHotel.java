@@ -194,8 +194,8 @@ public class ViewBookedHotel extends JFrame implements ActionListener {
 
         }
 
-        public static void main(String[] args) {
-            new ViewBookedHotel("");
-        }
+//        public static void main(String[] args) {
+//            new ViewBookedHotel("");
+//        }
     }
 

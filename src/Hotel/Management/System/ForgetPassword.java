@@ -195,8 +195,8 @@ public class ForgetPassword extends JFrame implements ActionListener {
         retrieve.setEnabled(false);
     }
 
-    public static void main(String[] args) {
-        new ForgetPassword();
-
-    }
+//    public static void main(String[] args) {
+//        new ForgetPassword();
+//
+//    }
 }

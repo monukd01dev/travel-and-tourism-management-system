@@ -57,7 +57,7 @@ public class BookPackage extends JFrame implements ActionListener {
         combopackage.setFont(new Font("Tahoma",Font.PLAIN,15));
         add(combopackage);
 
-        JLabel lbltotalpersons = new JLabel("Total Persons");
+        JLabel lbltotalpersons = new JLabel("<html><font size='5' color=black>Total Persons</font> <font size='4' color=red>*</font></html>");
         lbltotalpersons.setBounds(40,165,200,40);
         lbltotalpersons.setFont(new Font("Tahoma",Font.BOLD,17));
         add(lbltotalpersons);
@@ -166,40 +166,52 @@ public class BookPackage extends JFrame implements ActionListener {
     }
 
     public void actionPerformed(ActionEvent actionEvent) {
+
         if (actionEvent.getSource() == btncheckprice) {
+
+            if (tftotalpersons.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please Fill Mandatory Fields");
+            } else {
             String Package = (String) combopackage.getSelectedItem();
             int cost = 0;
             int persons = Integer.parseInt(tftotalpersons.getText());
 
             if (Package.equals("Gold Package")) {
-                cost+=12000;
+                cost += 12000;
             } else if (Package.equals("Silver Package")) {
                 cost += 24000;
             } else {
-                cost+=36000;
+                cost += 36000;
             }
-            cost*=persons;
-            labeltotalprice.setText(""+cost);
+            cost *= persons;
+            labeltotalprice.setText("" + cost);
+          }
+          }else if (actionEvent.getSource() == btnbookpackage) {
 
-        } else if (actionEvent.getSource() == btnbookpackage) {
+            if (tftotalpersons.getText().equals("")) {
+                JOptionPane.showMessageDialog(this, "Please Fill Mandatory Fields");
+            } else {
+                btncheckprice.doClick();
             try {
                 Conn c = new Conn();
                 String query = "insert into bookpackage values('"+labelusername.getText()+"','"+((String) combopackage.getSelectedItem())+"','"+tftotalpersons.getText()+"','"+labelid.getText()+"','"+labelnumber.getText()+"','"+labelphone.getText()+"','"+labeltotalprice.getText()+"')";
                 c.s.executeUpdate(query);
                 JOptionPane.showMessageDialog(this,"Package Booked Successfully...");
-            } catch (Exception e) {
+            }
+            catch (Exception e) {
                 JOptionPane.showMessageDialog(this, "You Have Already Booked A Package...");
 
                 setVisible(false);
                 new ViewPackage(username);
                 e.printStackTrace();
             }
+            }
         } else {
             setVisible(false);
         }
     }
 
-    public static void main(String[] args) {
-        new BookHotel("");
-    }
+//    public static void main(String[] args) {
+//        new BookPackage("monukd");
+//    }
 }

@@ -192,7 +192,7 @@ public class DeleteAccount extends JFrame implements ActionListener {
             }
         }
 
-    public static void main(String[] args) {
-        new DeleteAccount("monukd");
-    }
+//    public static void main(String[] args) {
+//        new DeleteAccount("monukd");
+//    }
 }

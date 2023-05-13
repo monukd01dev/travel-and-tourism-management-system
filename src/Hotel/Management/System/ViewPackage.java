@@ -145,8 +145,8 @@ public class ViewPackage extends JFrame implements ActionListener {
         setVisible(false);
     }
 
-    public static void main(String[] args) {
-        new ViewPackage("");
-    }
+//    public static void main(String[] args) {
+//        new ViewPackage("");
+//    }
 
 }

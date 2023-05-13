@@ -226,11 +226,11 @@ public class Dashboard extends JFrame implements ActionListener {
 
     public void actionPerformed(ActionEvent actionEvent) {
         if (actionEvent.getSource() == addPersonalDetails) {
-            new AddCustomer(Dashboard.this.username);
+            new AddCustomer(username);
         } else if (actionEvent.getSource() == viewDetails) {
-            new ViewCustomer(this.username);
+            new ViewCustomer(username);
         } else if (actionEvent.getSource() == updatePersonalDetails) {
-            new UpdateCustomer(this.username);
+            new UpdateCustomer(username);
         } else if (actionEvent.getSource() == checkPackage) {
             new CheckPackage();
         } else if (actionEvent.getSource() == bookPackage) {
@@ -267,12 +267,14 @@ public class Dashboard extends JFrame implements ActionListener {
         } else if (actionEvent.getSource() == deletePersonalDetails) {
             new DeleteAccount(username);
 
+        } else {
+            new About();
         }
 
 
     }
 
-    public static void main(String[] args) {
-        new Dashboard("");
-    }
+//    public static void main(String[] args) {
+//        new Dashboard("");
+//   }
 }

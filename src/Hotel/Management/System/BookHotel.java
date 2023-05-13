@@ -48,8 +48,8 @@ public class BookHotel extends JFrame implements ActionListener {
         labelusername.setFont(new Font("Tahoma",Font.PLAIN,17));
         add(labelusername);
 
-        JLabel lblselecthotel = new JLabel("Select Hotel");
-        lblselecthotel.setBounds(40,115,200,40);
+        JLabel lblselecthotel = new JLabel("<html><font size='5' color=black weight ='100'>Select Hotel</font> <font size='4' color=red>*</font></html>");
+        lblselecthotel.setBounds(40,120,200,40);
         lblselecthotel.setFont(new Font("Tahoma",Font.BOLD,17));
         add(lblselecthotel);
 
@@ -59,7 +59,7 @@ public class BookHotel extends JFrame implements ActionListener {
         combohotel.setFont(new Font("Tahoma",Font.PLAIN,15));
         add(combohotel);
 
-        JLabel lbltotalpersons = new JLabel("Total Persons");
+        JLabel lbltotalpersons = new JLabel("<html><font size='5' color=black>Total Persons</font> <font size='4' color=red>*</font></html>");
         lbltotalpersons.setBounds(40,165,200,40);
         lbltotalpersons.setFont(new Font("Tahoma",Font.BOLD,17));
         add(lbltotalpersons);
@@ -70,7 +70,7 @@ public class BookHotel extends JFrame implements ActionListener {
         tftotalpersons.setFont(new Font("Tahoma",Font.PLAIN,15));
         add(tftotalpersons);
 //        new
-        JLabel lblday = new JLabel("Day");
+        JLabel lblday = new JLabel("<html><font size='5' color=black weight ='100'>Day</font> <font size='4' color=red>*</font></html>");
         lblday.setBounds(40,205,200,40);
         lblday.setFont(new Font("Tahoma",Font.BOLD,17));
         add(lblday);
@@ -160,7 +160,7 @@ public class BookHotel extends JFrame implements ActionListener {
         btnbookpackage.setFocusPainted(false);
         btnbookpackage.setFont(new Font("Tahoma",Font.PLAIN,15));
         btnbookpackage.addActionListener(this);
-        btnbookpackage.setEnabled(false);
+//        btnbookpackage.setEnabled(false);
         add(btnbookpackage);
 
         btnback = new JButton("BACK");
@@ -223,34 +223,42 @@ public class BookHotel extends JFrame implements ActionListener {
                      }
                      cost = TotalDays * (TotalPerson * (CostPerPerson + AcRoom + Food));
                      labeltotalprice.setText("Rs "+cost+"/-");
-                     btnbookpackage.setEnabled(true);
+//                     btnbookpackage.setEnabled(true);
                  }
 
             } catch (Exception e) {
                 e.printStackTrace();
-                JOptionPane.showMessageDialog(this, "Please Select A Hotel...");
+                JOptionPane.showMessageDialog(this, "Please Fill Mandatory Fields");
+
             }
         } else if (actionEvent.getSource() == btnbookpackage) {
-            try {
-                Conn c = new Conn();
-                String query = "insert into bookhotel values('"+labelusername.getText()+"','"+((String) combohotel.getSelectedItem())+"','"+tftotalpersons.getText()+"','"+tfday.getText()+"','"+((String) comboac.getSelectedItem())+"','"+((String) combofood.getSelectedItem())+"','"+labelid.getText()+"','"+labelnumber.getText()+"','"+labelphone.getText()+"','"+labeltotalprice.getText()+"')";
-                c.s.executeUpdate(query);
-                JOptionPane.showMessageDialog(this,"Package Booked Successfully...");
-            } catch (Exception e) {
-                JOptionPane.showMessageDialog(this, "You Have Already Done Your Booking...");
+             btncheckprice.doClick();
+             if (tftotalpersons.getText().equals("") || tfday.getText().equals("")) {
+                 System.out.println("bro mai chal raha hunee \n\n\n");
+                 return;
+             } else {
 
-                setVisible(false);
-                new ViewBookedHotel(username);
+                try {
+                    Conn c = new Conn();
+                    String query = "insert into bookhotel values('"+labelusername.getText()+"','"+((String) combohotel.getSelectedItem())+"','"+tftotalpersons.getText()+"','"+tfday.getText()+"','"+((String) comboac.getSelectedItem())+"','"+((String) combofood.getSelectedItem())+"','"+labelid.getText()+"','"+labelnumber.getText()+"','"+labelphone.getText()+"','"+labeltotalprice.getText()+"')";
+                    c.s.executeUpdate(query);
+                    JOptionPane.showMessageDialog(this,"Package Booked Successfully...");
+                } catch (Exception e) {
+                    JOptionPane.showMessageDialog(this, "You Have Already Done Your Booking...");
 
-                e.printStackTrace();
-            }
+                    setVisible(false);
+                    new ViewBookedHotel(username);
+
+                    e.printStackTrace();
+                    }
+                }
         } else {
             setVisible(false);
         }
     }
 
-    public static void main(String[] args) {
-        new BookHotel("");
-    }
+//    public static void main(String[] args) {
+//        new BookHotel("monukd");
+//    }
 }
 
