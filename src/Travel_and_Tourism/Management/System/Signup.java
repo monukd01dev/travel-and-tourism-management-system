@@ -1,8 +1,6 @@
-package Hotel.Management.System;
+package Travel_and_Tourism.Management.System;
 
 
-
-import com.mysql.cj.log.Log;
 
 import javax.swing.*;
 import java.awt.*;

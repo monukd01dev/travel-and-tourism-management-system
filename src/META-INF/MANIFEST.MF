@@ -1,3 +1,3 @@
 Manifest-Version: 1.0
-Main-Class: Hotel.Management.System.Splash
+Main-Class: Travel_and_Tourism.Management.System.Splash
 

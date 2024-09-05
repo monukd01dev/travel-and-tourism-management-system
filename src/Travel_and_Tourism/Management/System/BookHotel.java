@@ -1,7 +1,6 @@
-package Hotel.Management.System;
+package Travel_and_Tourism.Management.System;
 
 import javax.swing.*;
-import javax.xml.transform.Result;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

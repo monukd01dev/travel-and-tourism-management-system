@@ -1,11 +1,10 @@
-package Hotel.Management.System;
+package Travel_and_Tourism.Management.System;
 
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.ResultSet;
-import java.util.Objects;
 
 public class ViewBookedHotel extends JFrame implements ActionListener {
 

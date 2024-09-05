@@ -1,4 +1,4 @@
-package Hotel.Management.System;
+package Travel_and_Tourism.Management.System;
 import java.sql.*;
 public class Conn {
     Connection c;

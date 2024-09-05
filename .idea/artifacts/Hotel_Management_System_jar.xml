@@ -2,7 +2,7 @@
   <artifact type="jar" name="Hotel Management System:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/Hotel_Management_System_jar</output-path>
     <root id="archive" name="Hotel Management System.jar">
-      <element id="module-output" name="Hotel Management System" />
+      <element id="module-output" name="Travel and Tourism Management System" />
       <element id="extracted-dir" path="$USER_HOME$/Downloads/Telegram Desktop/mysql-connector-java-8.0.26.jar" path-in-jar="/" />
     </root>
   </artifact>

@@ -1,4 +1,4 @@
-package Hotel.Management.System;
+package Travel_and_Tourism.Management.System;
 
 import javax.swing.*;
 import java.awt.*;
